@@ -12,8 +12,8 @@ public class EhcacheConfig extends CacheConfig {
     public EhCacheCacheManager ehCacheCacheManager() {
         net.sf.ehcache.config.Configuration config = new net.sf.ehcache.config.Configuration();
 
-        //멤버 찾는 메소드에 대한 캐시
-        config.addCache(MemeberCache.findMember());
+        //Ehcache 전역 설정 파일중 멤버에 대한 캐시 사용
+        config.addCache(DomainCache.member());
 
         return new EhCacheCacheManager(CacheManager.newInstance(config));
     }
